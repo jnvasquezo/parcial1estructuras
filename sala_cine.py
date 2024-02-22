@@ -73,6 +73,12 @@ class SalaCine:
             print("¡Reserva realizada con éxito!")
             self.mostrar_estado_sala()
         return True
+    
+    def iterar_asientos(self):
+        actual = self.primer_asiento
+        while actual is not None:
+            yield actual
+            actual = actual.siguiente
 
     def cancelar_reserva(self, fila, asiento):
         anterior = None
