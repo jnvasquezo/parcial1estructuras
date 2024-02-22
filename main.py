@@ -22,7 +22,7 @@ def main():
     sala.mostrar_estado_sala()
 
     while True:
-        opcion = input("\n¿Qué acción desea realizar? (reservar/cancelar/Emergencia/salir/mostrar): ").lower()
+        opcion = input("\n¿Qué acción desea realizar? (reservar/cancelar/Emergencia/salir/mostrar/pelicula): ").lower()
         if opcion == "reservar":
             fila = int(input("Ingrese la fila del asiento a reservar: "))
             asiento = int(input("Ingrese el número del asiento a reservar: "))
@@ -38,7 +38,13 @@ def main():
                 if nodo_asiento.cliente:
                     print("Nombre: {}, Apellido: {}, Contacto de Emergencia: {}".format(nodo_asiento.cliente.nombre, nodo_asiento.cliente.apellido, nodo_asiento.cliente.contacto_emergencia))
         elif opcion == "mostrar":
-                sala.mostrar_estado_sala()
+            sala.mostrar_estado_sala()
+        elif opcion == "pelicula":
+            sala.mostrar_estado_sala()
+            print("todos estan disfrutando de la increible pelicula de linterna verde")
+            for nodo_asiento in sala.iterar_asientos():
+                if nodo_asiento.cliente:
+                    print("Nombre: {}, Apellido: {},".format(nodo_asiento.cliente.nombre, nodo_asiento.cliente.apellido))
         elif opcion == "salir":
             break
         else:
